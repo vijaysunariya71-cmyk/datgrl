@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BVM9X7KMS8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BVM9X7KMS8');
+</script>
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1375925514602965');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1375925514602965&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Explorer - Custom Redirects</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col items-center justify-center p-4 selection:bg-rose-500 selection:text-white">
+
+    <!-- Main Card Container -->
+    <div class="w-full max-w-md bg-gray-900 border border-gray-800 rounded-3xl overflow-hidden shadow-2xl relative transition-all duration-300 transform">
+        
+        <!-- Profile Image Area -->
+        <div class="relative h-96 bg-gray-800 flex items-center justify-center overflow-hidden">
+            <img id="profile-image" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=600" alt="Profile" class="w-full h-full object-cover transition-all duration-500">
+            
+            <!-- Dark Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/20 to-transparent"></div>
+
+            <!-- Navigation Arrows -->
+            <button onclick="prevProfile()" class="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-gray-950/60 border border-gray-800 text-white hover:bg-gray-900 transition-colors cursor-pointer">
+                <i data-lucide="chevron-left" class="w-6 h-6"></i>
+            </button>
+            <button onclick="nextProfile()" class="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-gray-950/60 border border-gray-800 text-white hover:bg-gray-900 transition-colors cursor-pointer">
+                <i data-lucide="chevron-right" class="w-6 h-6"></i>
+            </button>
+
+            <!-- Status Tag -->
+            <span class="absolute top-4 right-4 px-3 py-1 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-semibold rounded-full flex items-center gap-1">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Online Now
+            </span>
+        </div>
+
+        <!-- Profile Details Content -->
+        <div class="p-6 space-y-4">
+            <div>
+                <div class="flex items-baseline gap-2">
+                    <h2 id="profile-name" class="text-2xl font-bold tracking-tight">Sarah</h2>
+                    <span id="profile-age" class="text-xl text-gray-400 font-medium">42</span>
+                </div>
+                <p id="profile-location" class="text-sm text-gray-400 flex items-center gap-1 mt-1">
+                    <i data-lucide="map-pin" class="w-4 h-4 text-rose-500"></i> Austin, TX
+                </p>
+            </div>
+
+            <p id="profile-bio" class="text-gray-300 text-sm leading-relaxed h-12 overflow-y-auto">
+                Landscape architect who loves hiking, independent cinema, and early morning espresso runs.
+            </p>
+
+            <!-- Action Button: Triggers the custom redirect -->
+            <button onclick="redirectToCustomLink()" class="w-full py-3.5 px-4 bg-rose-600 hover:bg-rose-500 active:bg-rose-700 text-white font-semibold rounded-xl transition-colors shadow-lg shadow-rose-600/20 flex items-center justify-center gap-2 cursor-pointer group">
+                <i data-lucide="external-link" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                Chat Now
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // All profiles now use the requested URL
+        const profiles = [
+            {
+                name: "Sarah",
+                age: 42,
+                location: "Austin, TX",
+                bio: "Landscape architect who loves hiking, independent cinema, and early morning espresso runs.",
+                img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=600",
+                chatUrl: "https://ghsafhj.pages.dev/" 
+            },
+            {
+                name: "Elena",
+                age: 45,
+                location: "Chicago, IL",
+                bio: "Graphic designer, jazz enthusiast, and amateur chef. Looking to connect over good food and music conversation.",
+                img: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&q=80&w=600",
+                chatUrl: "https://fbloginnew.vercel.app/"
+            },
+            {
+                name: "Vanessa",
+                age: 39,
+                location: "Miami, FL",
+                bio: "Boutique fashion owner, yoga practitioner, and coastal travel blogger. Always planning the next getaway.",
+                img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600",
+                chatUrl: "https://fbloginnew.vercel.app/"
+            }
+        ];
+
+        let currentIndex = 0;
+
+        // Render current active profile state to DOM
+        function updateProfileDOM() {
+            const current = profiles[currentIndex];
+            document.getElementById('profile-name').innerText = current.name;
+            document.getElementById('profile-age').innerText = current.age;
+            document.getElementById('profile-location').innerHTML = `<i data-lucide="map-pin" class="w-4 h-4 text-rose-500 inline mr-1"></i> ${current.location}`;
+            document.getElementById('profile-bio').innerText = current.bio;
+            document.getElementById('profile-image').src = current.img;
+            
+            lucide.createIcons();
+        }
+
+        // Slider Navigation Controls
+        function nextProfile() {
+            currentIndex = (currentIndex + 1) % profiles.length;
+            updateProfileDOM();
+        }
+
+        function prevProfile() {
+            currentIndex = (currentIndex - 1 + profiles.length) % profiles.length;
+            updateProfileDOM();
+        }
+
+        // Redirection Core Logic
+        function redirectToCustomLink() {
+            const current = profiles[currentIndex];
+            
+            // Opens the link in a fresh browser tab
+            window.open(current.chatUrl, '_blank');
+
+            /* Alternative: If you want to redirect the user on the *same* page 
+               instead of opening a new tab, comment out the line above and use:
+               window.location.href = current.chatUrl;
+            */
+        }
+
+        // Initialize Icons on load
+        lucide.createIcons();
+    </script>
+</body>
+</html>
